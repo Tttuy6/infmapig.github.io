@@ -1,1 +1,95 @@
-<h2>Hey there I see you want to go on a journey, If you follow this the prize for solving it will be woth it</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hey there I see you want to go on a journey, If you follow this the prize for solving it will be worth it</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background-color: #ccc;
+        }
+
+        #message {
+            margin-bottom: 20px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Password Protected Link</h1>
+        <div id="message"></div>
+        <input type="password" id="password" placeholder="Enter Password" />
+        <button id="submitBtn">Submit</button>
+    </div>
+    <script>
+        const correctPassword = "yourPassword"; // Replace with your actual password
+        const link = "https://www.example.com"; // Replace with your actual link
+        let lockout = false;
+
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            if (lockout) return;
+
+            const password = document.getElementById('password').value;
+            const messageDiv = document.getElementById('message');
+
+            if (password === correctPassword) {
+                window.location.href = link;
+            } else {
+                messageDiv.textContent = "Incorrect password. Try again in 20 seconds.";
+                lockout = true;
+                document.getElementById('submitBtn').disabled = true;
+
+                setTimeout(() => {
+                    lockout = false;
+                    document.getElementById('submitBtn').disabled = false;
+                    messageDiv.textContent = "";
+                }, 20000); // 20 seconds lockout
+            }
+        });
+    </script>
+</body>
+</html>
+
