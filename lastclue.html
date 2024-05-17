@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Protected Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #password-input {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        #submit-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #video-container {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Please enter the password to access the video:</h2>
+    <input type="password" id="password-input" placeholder="Enter password">
+    <button id="submit-btn">Submit</button>
+    <div id="video-container">
+        <video controls width="640" height="360">
+            <source src="your_video_file_path.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script>
+        const correctPassword = "<!-- Put the initial generated password here -->";
+
+        document.getElementById("submit-btn").addEventListener("click", function() {
+            const enteredPassword = document.getElementById("password-input").value;
+            if (enteredPassword === correctPassword) {
+                document.getElementById("video-container").style.display = "block";
+            } else {
+                alert("Incorrect password. Please try again.");
+            }
+        });
+    </script>
+</body>
+</html>
