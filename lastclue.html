@@ -37,16 +37,27 @@
     </div>
 
     <script>
-        const correctPassword = "<!-- Put the initial generated password here -->";
+        // Function to retrieve the generated code from local storage
+        function getGeneratedCode() {
+            return localStorage.getItem("generatedCode");
+        }
 
-        document.getElementById("submit-btn").addEventListener("click", function() {
+        // Function to check if the entered password matches the generated code
+        function checkPassword() {
             const enteredPassword = document.getElementById("password-input").value;
-            if (enteredPassword === correctPassword) {
+            const generatedCode = getGeneratedCode();
+            if (enteredPassword === generatedCode) {
                 document.getElementById("video-container").style.display = "block";
             } else {
                 alert("Incorrect password. Please try again.");
             }
-        });
+        }
+
+        // Add event listener to the submit button
+        document.getElementById("submit-btn").addEventListener("click", checkPassword);
+
+        // Check if the password matches the generated code when the page loads
+        window.onload = checkPassword;
     </script>
 </body>
 </html>
