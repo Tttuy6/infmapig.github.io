@@ -1,1 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz with Password</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .question {
+            margin-bottom: 10px;
+        }
+        .password-screen {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input[type="password"], input[type="text"], button {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .lockout {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Take first letter of each answer no caps</h1>
+        <div class="quiz">
+            <div class="question">
+                1. What is the capital of France? <input type="text" id="q1">
+            </div>
+            <div class="question">
+                2. What is 2 + 2? <input type="text" id="q2">
+            </div>
+            <div class="question">
+                3. What is the largest planet in our solar system? <input type="text" id="q3">
+            </div>
+            <div class="question">
+                4. What element does 'O (letter)' represent on the periodic table? <input type="text" id="q4">
+            </div>
+            <div class="question">
+                5. What is the currency of the United States? <input type="text" id="q5">
+            </div>
+        </div>
+        <div class="password-screen">
+            <input type="password" id="password" placeholder="Enter password">
+            <button onclick="checkPassword()">Submit</button>
+            <div class="lockout" id="lockout"></div>
+        </div>
+    </div>
+    <script>
+        const correctPassword = 'p4jod'; // Custom password
 
+        function checkPassword() {
+            const enteredPassword = document.getElementById('password').value;
+
+            if (enteredPassword === correctPassword) {
+                window.location.href = 'https://example.com'; // Link to open on correct password
+            } else {
+                document.getElementById('lockout').innerText = 'Incorrect password. Try again in 20 seconds.';
+                document.querySelector('button').disabled = true;
+                setTimeout(() => {
+                    document.querySelector('button').disabled = false;
+                    document.getElementById('lockout').innerText = '';
+                }, 20000);
+            }
+        }
+    </script>
+</body>
+</html>
