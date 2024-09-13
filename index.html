@@ -19,170 +19,111 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.5/keen-slider.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="./js/main.js"></script>
+    <style>
+      /* Background gradient */
+      body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        flex-direction: column;
+      }
+
+      /* Title styling */
+      .title {
+        font-size: 50px;
+        font-weight: bold;
+        color: white;
+        margin-top: 50px;
+        text-align: center;
+      }
+
+      /* Button styling */
+      #myButtonx {
+        background-color: #0000FF;
+        color: white;
+        border: 2px solid #fff;
+        padding: 20px;
+        border-radius: 30px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        font-size: 24px;
+        width: 80%;
+        height: auto;
+        max-width: 500px;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+        margin-top: 30px; /* Added margin to create space between the title and button */
+      }
+
+      /* Hover effect */
+      #myButtonx::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background-color: rgba(255, 255, 255, 0.4);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: width 0.5s ease, height 0.5s ease;
+      }
+
+      #myButtonx:hover::before {
+        width: 300%;
+        height: 300%;
+      }
+
+      #myButtonx:hover {
+        transform: scale(1.05); /* Slight scale effect */
+        background-color: #007bff; /* Change button color on hover */
+      }
+    </style>
   </head>
   <body>
-    <div class="navbar">
-      <div class="navitems">
-        <img alt = "Home" onclick="location.href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'" src="./images/logo.png" class="navlogo" draggable="false" />
-      
-      
-    </div>
-    
-    
-    <div class="title"> Infmapi 2.0 is coming </div>
-    <center>
-    
-<div>
-  <h2>New updates coming out! Big update</h2>
-</div>
+    <div class="title">Auto-launch ✅</div>
+    <button id="myButtonx">Play Now!! (New Massive Update)</button>
 
-   <div>
-       <button id="myButtonx">Play Now!! (New Massive Update) </button>
-       </div>
-      <div>
-         <a href="">
-    <img src="transparent.png" alt="Logo" style="width: 150px; height: 45px;" />
- </a>
-        </div>
-    
-  
-  
-      <div>
-</body>
-</div>
-      <style>
-  #myButtonx {
-    background-color: transparent;
-    color: #0000FF;
-    border: 2px solid #fff;
-    padding: 10px 20px;
-    border-radius: 30px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    font-size: 20px;
-  }
-  
-  #myButtonx::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background-color:  #0000FF;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s ease-out, height 0.3s ease-out;
-    opacity: 0.5;
-  }
-  
-  #myButtonx:hover::before {
-    width: 200%;
-    height: 200%;
-  }
-        #myButtonxx {
-    background-color: transparent;
-    color: #0000FF;
-    border: 2px solid #fff;
-    padding: 10px 20px;
-    border-radius: 30px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    font-size: 20px;
-  }
-  
-  #myButtonxx::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background-color:  	#90EE90;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s ease-out, height 0.3s ease-out;
-    opacity: 0.5;
-  }
-  
-  #myButtonxx:hover::before {
-    width: 200%;
-    height: 200%;
-  }
-        
-        .suggestbutton {
-  display: inline-block;
-  position: relative;
-  overflow: hidden;
-  border-radius: 4px;
-  background-color: #007bff;
-  padding: 12px 20px;
-  color: #fff;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
+    <script>
+      // Function to open a new window with iframe
+      function openNewWindow() {
+        const newWindow = window.open('about:blank', '_blank');
+        const iframe = document.createElement('iframe');
+        iframe.src = 'https://phantom-deploy.github.io/infmapig.github.io/selection.html';
+        iframe.style.width = '100%';
+        iframe.style.height = '100%';
+        iframe.style.position = 'absolute';
+        iframe.style.top = '0';
+        iframe.style.left = '0';
+        iframe.style.bottom = '0';
+        iframe.style.right = '0';
+        newWindow.document.body.appendChild(iframe);
+      }
 
-.suggestbutton::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
-}
+      // Auto-launch after page loads
+      window.onload = function() {
+        setTimeout(() => {
+          openNewWindow();
+        }, 0); // Auto-launch after 5 seconds
+      };
 
-.suggestbutton:hover {
-  background-color: #0056b3;
-}
-
-.suggestbutton:hover::before {
-  left: 0;
-}
-.countdown-timer {
-            display: inline-block;
-            transform: scale(0.5); /* Adjust the scale as needed */
-            transform-origin: center;
-        }
-</style>
-
-<script>
-const button = document.querySelector('#myButtonx');
-  button.addEventListener('click', () => {
-    const newWindow = window.open('about:blank', '_blank');
-    const iframe = document.createElement('iframe');
-    iframe.src = 'https://phantom-deploy.github.io/infmapig.github.io/selection.html';
-    iframe.style.width = '100%';
-    iframe.style.height = '100%';
-    iframe.style.position = 'absolute';
-    iframe.style.top = '0';
-    iframe.style.left = '0';
-    iframe.style.bottom = '0';
-    iframe.style.right = '0';
-    newWindow.document.body.appendChild(iframe);
-  });
-
-
-  
-
-</script>
-
-    </center>
-
-    
-    <div id="my-keen-slider" class="keen-slider"></div>
-
-    
+      // Button redirection functionality
+      const button = document.querySelector('#myButtonx');
+      button.addEventListener('click', () => {
+        openNewWindow(); // Open window when button is clicked
+      });
+    </script>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init();
     </script>
     <script src="./assets/keen-slider.min.js"></script>
-   
     <script src="./js/index.js"></script>
     <script src="./js/home.js"></script>
   </body>
