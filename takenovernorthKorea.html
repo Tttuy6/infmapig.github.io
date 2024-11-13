@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taken</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      font-size: 2em;
+      margin-top: 20px;
+    }
+    .parrot {
+      color: #c40208;
+      text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00;
+      animation: glow 1.5s infinite alternate;
+    }
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00;
+      }
+      to {
+        text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;
+      }
+    }
+    .image-slot {
+      width: 500px;
+      height: 500px;
+      margin: 20px auto;
+      border: 2px solid #00ff00;
+    }
+  </style>
+</head>
+<body>
+  <h1>This game has been taken over by <span class="parrot">North Korea</span></h1>
+  <img class="image-slot" src="parrots/flags/northkoreaparrot.gif" alt="Parrot Image">
+</body>
+</html>
